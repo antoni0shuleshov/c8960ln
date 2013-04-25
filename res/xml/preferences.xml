@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <ListPreference android:key="@string/missed_call_led" android:title="@string/pref_missed_calls_title" android:defaultValue="None"/>
+    <ListPreference android:key="@string/missed_sms_led" android:title="@string/pref_missed_sms_title" android:defaultValue="None" android:shouldDisableView="true" android:enabled="true"/>
+    <ListPreference android:key="@string/missed_email_led" android:title="Missed Email" android:summary="select LED for missed email (to be implemented)" android:defaultValue="None" android:shouldDisableView="true" android:enabled="false"/>
+    <CheckBoxPreference android:key="@string/service_state" android:switchTextOn="ON" android:switchTextOff="OFF" android:summaryOn="@string/pref_service_summary_on" android:summaryOff="@string/pref_service_summary_off" android:title="@string/pref_service_title"/>
+    <Preference android:key="@string/off_leds" android:title="@string/pref_off_leds"/>
+</PreferenceScreen>

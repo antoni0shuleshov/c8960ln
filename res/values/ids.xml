@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="missed_call_led">missed_call_led</string>
+    <string name="missed_sms_led">missed_sms_led</string>
+    <string name="missed_email_led">missed_email_led</string>
+    <string name="service_state">service_state</string>
+    <string name="off_leds">off_leds</string>
+    
+</resources>

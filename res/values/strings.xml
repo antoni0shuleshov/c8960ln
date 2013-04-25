@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">C8960 Led Notifications</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="ledsListTitles">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Keys</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="ledsList">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Keys</item>
+        <item>None</item>
+    </string-array>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="blueLedCaption">Blue LED</string>
+    <string name="redLedCaption">Red LED</string>
+    <string name="keysLedCaption">Keypad backlight</string>
+	<string name="noLedCaption">Disabled</string>
+    <string name="pref_missed_calls_title">Missed calls</string>	
+    <string name="pref_selected_summary"></string>
+    <string name="pref_missed_sms_title">Missed SMS</string>
+    <string name="pref_off_leds">Off all LEDs</string>
+	<string name="pref_service_summary_on">enabled</string>        
+	<string name="pref_service_summary_off">disabled</string>
+	<string name="pref_service_title">LED notification</string>
+</resources>
