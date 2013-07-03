@@ -6,10 +6,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.io.StringWriter;
 
 import net.kaasnake.Logger;
 
@@ -94,15 +97,47 @@ public class LedControl {
 			return 0;
 		}
 	}
+	private static String fromStream(InputStream in) 
+	{
+		        InputStreamReader isr =
+		            new InputStreamReader( in );
+		        BufferedReader buff = new BufferedReader( isr );
+		        StringBuffer strBuff = new StringBuffer();
+		        
+		        String s;
+		        try {
+					while ( ( s = buff.readLine() ) != null ) {
+					    strBuff.append(s);
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
+		        return strBuff.toString();
+
+	}
+	
+
+	
 	public static void initControl() {
 		if (LedControl.useDummy) {
 			LedControlDummy.initControl();
 			return;
 		} else {
 			
-			Process p;
+			//Process p;
 			try {
+				Process root = Runtime.getRuntime().exec("su");
+				DataOutputStream os = new DataOutputStream(root.getOutputStream()); 
+				for (LedsEnum led : LedsEnum.values()) {
+					String str = "chmod 777 "	+ led.getSysfsPath();
+					Logger.Log("LN root","chmod 777 "+ led.getSysfsPath());
+					os.writeBytes(str+"\n");
+				}
+	            os.flush();
+
+				/*
 				// Preform su to get root privledges
 				p = Runtime.getRuntime().exec("su");
 
@@ -133,10 +168,10 @@ public class LedControl {
 				} catch (InterruptedException e) {
 					// TODO Code to run in interrupted exception
 					Logger.Log("root", "root error", "e");
-				}
+				}*/
 			} catch (IOException e) {
 				// TODO Code to run in input/output exception
-				Logger.Log("root", "root error 2", "e");
+				Logger.Log("C8690", "Faild to get root permissions", "e");
 			}
 			
 		}
